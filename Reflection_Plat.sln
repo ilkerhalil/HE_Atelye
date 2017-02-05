@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailProviders", "MailProviders\MailProviders.csproj", "{5E53E667-01ED-4CD0-AC77-47B2C9F0F304}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendGridMailProvider", "SendGridMailProvicer\SendGridMailProvider.csproj", "{50339C70-16AE-4121-9ACC-53D44AD4BA7A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendGridMailProvider", "SendGridMailProvider\SendGridMailProvider.csproj", "{50339C70-16AE-4121-9ACC-53D44AD4BA7A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

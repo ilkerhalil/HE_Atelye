@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailProviders", "MailProvid
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendGridMailProvider", "SendGridMailProvider\SendGridMailProvider.csproj", "{50339C70-16AE-4121-9ACC-53D44AD4BA7A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmtpMailProvider", "SmtpMailProvider\SmtpMailProvider.csproj", "{EDC945D6-E628-419C-AF76-E23F415B5AB0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{50339C70-16AE-4121-9ACC-53D44AD4BA7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50339C70-16AE-4121-9ACC-53D44AD4BA7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50339C70-16AE-4121-9ACC-53D44AD4BA7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDC945D6-E628-419C-AF76-E23F415B5AB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDC945D6-E628-419C-AF76-E23F415B5AB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDC945D6-E628-419C-AF76-E23F415B5AB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDC945D6-E628-419C-AF76-E23F415B5AB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

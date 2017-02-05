@@ -8,6 +8,6 @@ namespace MailProviders.Enums
 {
     public enum MailProviders
     {
-
+        Smpt = 1, EuroMessage = 2, SendGrid = 3
     }
 }

@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 using MailProviders;
 using SendGrid;
 using SendGrid.Helpers.Mail;
-using SendGridMailProvicer.ConfigSections;
+using SendGridMailProvider.ConfigSections;
 
-namespace SendGridMailProvicer {
+namespace SendGridMailProvider {
     public class SendGridMailProvider : IMailProvider {
         private const string MailType = "text/plain";
         private readonly string _apiKey;

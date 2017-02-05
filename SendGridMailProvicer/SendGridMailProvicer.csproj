@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5E53E667-01ED-4CD0-AC77-47B2C9F0F304}</ProjectGuid>
+    <ProjectGuid>{50339C70-16AE-4121-9ACC-53D44AD4BA7A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MailProviders</RootNamespace>
-    <AssemblyName>MailProviders</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>SendGridMailProvicer</RootNamespace>
+    <AssemblyName>SendGridMailProvicer</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -59,14 +58,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\Enums.cs" />
-    <Compile Include="IMailProvider.cs" />
-    <Compile Include="MailRequest.cs" />
+    <Compile Include="ConfigSections\SendGridProviderConfigElement.cs" />
+    <Compile Include="ConfigSections\SendGridProviderConfigSection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SendGridMailProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MailProviders\MailProviders.csproj">
+      <Project>{5E53E667-01ED-4CD0-AC77-47B2C9F0F304}</Project>
+      <Name>MailProviders</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

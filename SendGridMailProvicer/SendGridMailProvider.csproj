@@ -7,8 +7,8 @@
     <ProjectGuid>{50339C70-16AE-4121-9ACC-53D44AD4BA7A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SendGridMailProvicer</RootNamespace>
-    <AssemblyName>SendGridMailProvicer</AssemblyName>
+    <RootNamespace>SendGridMailProvider</RootNamespace>
+    <AssemblyName>SendGridMailProvider</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

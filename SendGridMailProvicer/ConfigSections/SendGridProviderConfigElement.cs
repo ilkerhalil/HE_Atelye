@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace SendGridMailProvicer.ConfigSections {
+namespace SendGridMailProvider.ConfigSections {
 
     public class SendGridProviderConfigElement : ConfigurationElement {
 

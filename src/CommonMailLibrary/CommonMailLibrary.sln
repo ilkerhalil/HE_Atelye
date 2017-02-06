@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonMailLibrary.Interfaces", "CommonMailLibrary.Interfaces\CommonMailLibrary.Interfaces.csproj", "{3DCF2752-CDD5-4A13-BC0E-E5E99A12A9A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonMailLibrary.SendGridMailProvider", "CommonMailLibrary.SendGridMailProvider\CommonMailLibrary.SendGridMailProvider.csproj", "{DC0F800C-1172-4343-9212-0585B46C4AAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonMailLibrary.SmtpMailProvider", "CommonMailLibrary.SmtpMailProvider\CommonMailLibrary.SmtpMailProvider.csproj", "{BACA1E77-39A3-44F8-9EB2-70463085FC3D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3DCF2752-CDD5-4A13-BC0E-E5E99A12A9A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DCF2752-CDD5-4A13-BC0E-E5E99A12A9A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DCF2752-CDD5-4A13-BC0E-E5E99A12A9A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DCF2752-CDD5-4A13-BC0E-E5E99A12A9A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC0F800C-1172-4343-9212-0585B46C4AAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC0F800C-1172-4343-9212-0585B46C4AAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC0F800C-1172-4343-9212-0585B46C4AAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC0F800C-1172-4343-9212-0585B46C4AAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BACA1E77-39A3-44F8-9EB2-70463085FC3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BACA1E77-39A3-44F8-9EB2-70463085FC3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BACA1E77-39A3-44F8-9EB2-70463085FC3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BACA1E77-39A3-44F8-9EB2-70463085FC3D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

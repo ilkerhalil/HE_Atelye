@@ -1,3 +1,0 @@
-c:\users\iturer\documents\visual studio 2015\Projects\Reflection_Plat\Reflection_Plat\bin\Debug\Reflection_Plat.exe.config
-C:\GitProjects\HE_Atelye\Reflection_Plat\obj\Debug\Reflection_Plat.csprojResolveAssemblyReference.cache
-C:\GitProjects\HE_Atelye\Reflection_Plat\bin\Debug\Reflection_Plat.exe.config

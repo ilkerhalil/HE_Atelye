@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using CommonMailLibrary.Interfaces;
 using CommonMailLibrary.SendGridMailProvider.ConfigSections;
@@ -21,6 +22,7 @@ namespace CommonMailLibrary.SendGridMailProvider {
 
         public SendGridMailProvider(string apiKey) {
             _apiKey = apiKey;
+            
         }
 
         public async Task SendMailAsync(MailRequest request) {

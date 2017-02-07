@@ -36,6 +36,8 @@
   <ItemGroup>
     <Compile Include="Enums\Enums.cs" />
     <Compile Include="IMailProvider.cs" />
+    <Compile Include="MailAddress.cs" />
+    <Compile Include="MailAddressCollection.cs" />
     <Compile Include="MailRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

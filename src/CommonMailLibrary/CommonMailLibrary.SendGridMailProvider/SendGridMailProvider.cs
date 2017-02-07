@@ -7,38 +7,77 @@ using CommonMailLibrary.SendGridMailProvider.ConfigSections;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 
-namespace CommonMailLibrary.SendGridMailProvider {
-    public class SendGridMailProvider : IMailProvider {
+namespace CommonMailLibrary.SendGridMailProvider
+{
+    public class SendGridMailProvider : MailProviderBase
+    {
         private const string MailType = "text/plain";
         private readonly string _apiKey;
         private SendGridAPIClient _sendGridApi;
 
-        public SendGridMailProvider() {
+        public SendGridMailProvider()
+        {
             var sendGridProviderConfigSection = ConfigurationManager.GetSection("SendGridProviderConfigSection") as SendGridProviderConfigSection;
-            if (sendGridProviderConfigSection != null) {
+            if (sendGridProviderConfigSection != null)
+            {
                 _apiKey = sendGridProviderConfigSection.SendGridProviderConfig.SendGridApiKey;
             }
         }
 
-        public SendGridMailProvider(string apiKey) {
+        public SendGridMailProvider(string apiKey)
+        {
             _apiKey = apiKey;
-            
+
         }
 
-        public async Task SendMailAsync(MailRequest request) {
+        public async Task SendMailAsync(MailRequest request)
+        {
             var mail = CreateMail(request);
             await _sendGridApi.client.mail.send.post(requestBody: mail.Get());
         }
 
-        private Mail CreateMail(MailRequest request) {
+        protected override Task SendMailAsyncInternal(MailRequest mailRequest)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void SendMailInternal(MailRequest mailRequest)
+        {
+            throw new NotImplementedException();
+        }
+
+        private Mail CreateMail(MailRequest request)
+        {
+            var mail = new Mail();
+            var personalization = new Personalization();
+
             if (string.IsNullOrWhiteSpace(_apiKey))
                 throw new ArgumentNullException(nameof(_apiKey));
+
             _sendGridApi = new SendGridAPIClient(_apiKey);
-            var mail = new Mail(new Email(request.From), request.Subject, new Email(request.To), new Content(MailType, request.Body));
+
+            foreach (var mailAddress in request.To)
+            {
+                personalization.Tos.Add(new Email(mailAddress.ToString()));
+            }
+
+            foreach (var bccAddress in request.Bcc)
+            {
+                personalization.Bccs.Add(new Email(bccAddress.ToString()));
+            }
+
+            foreach (var ccAddress in request.Cc)
+            {
+                personalization.AddCc(new Email(ccAddress.ToString()));
+            }
+
+            mail.AddPersonalization(personalization);
+            mail.Subject = request.Subject;
             return mail;
         }
 
-        public void SendMail(MailRequest request) {
+        public void SendMail(MailRequest request)
+        {
             var mail = CreateMail(request);
             _sendGridApi.client.mail.send.post(requestBody: mail.Get());
         }

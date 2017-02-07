@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Linq;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using CommonMailLibrary.Interfaces;
@@ -48,17 +49,28 @@ namespace CommonMailLibrary.SmtpMailProvider
             if (string.IsNullOrWhiteSpace(mailRequest.From))
                 throw new ArgumentNullException(nameof(mailRequest.From));
 
-            if (string.IsNullOrWhiteSpace(mailRequest.To))
+            if (string.IsNullOrWhiteSpace(mailRequest.To.ToString()))
                 throw new ArgumentNullException(nameof(mailRequest.To));
 
-            if (!string.IsNullOrWhiteSpace(mailRequest.Bcc))
-                mailMessage.Bcc.Add(mailRequest.Bcc);
+            if (mailRequest.Bcc.Count > 0)
+                foreach (var item in mailRequest.Bcc)
+                {
+                    mailMessage.Bcc.Add(item.ToString());
+                }
 
-            if (!string.IsNullOrWhiteSpace(mailRequest.Cc))
-                mailMessage.CC.Add(mailRequest.Cc);
+            if (mailRequest.Cc.Count > 0)
+                foreach (var item in mailRequest.Cc)
+                {
+                    mailMessage.CC.Add(item.ToString());
+                }
 
-            mailMessage.To.Add(mailRequest.To);
-            mailMessage.From = mailMessage.From;
+            foreach (var emailAddress in mailRequest.To)
+            {
+                mailMessage.To.Add(emailAddress.ToString());
+            }
+
+            mailMessage.From = new System.Net.Mail.MailAddress(mailRequest.From);
+            
 
 
             _smtpClient = new SmtpClient(_smtpHost, _smtpPort)

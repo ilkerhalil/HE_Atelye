@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Configuration;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using CommonMailLibrary.Interfaces;
+using CommonMailLibrary.SmtpMailProvider.ConfigSections;
 
 namespace CommonMailLibrary.SmtpMailProvider
 {
@@ -13,12 +15,25 @@ namespace CommonMailLibrary.SmtpMailProvider
         private readonly int _smtpTimeOut;
         private SmtpClient _smtpClient;
 
-        public SmtpMailProvider(string smtpHost, int smtpPort, bool smtpEnableSsl, int smtpTimeOut)
+        public SmtpMailProvider(string smtpHost, int smtpPort, bool smtpEnableSsl = false, int smtpTimeOut = 200)
         {
             _smtpHost = smtpHost;
             _smtpPort = smtpPort;
             _smtpEnableSsl = smtpEnableSsl;
             _smtpTimeOut = smtpTimeOut;
+        }
+
+        public SmtpMailProvider()
+        {
+            var smtpProviderConfigSection = ConfigurationManager.GetSection("SmtpProviderConfigSection") as SmtpProviderConfigSection;
+
+            if (smtpProviderConfigSection == null)
+                throw new ArgumentNullException(nameof(smtpProviderConfigSection));
+
+            _smtpHost = smtpProviderConfigSection.SmtpProviderConfig.SmtpHost;
+            _smtpPort = smtpProviderConfigSection.SmtpProviderConfig.SmtpPort;
+            _smtpEnableSsl = smtpProviderConfigSection.SmtpProviderConfig.SmtpEnableSsl;
+            _smtpTimeOut = smtpProviderConfigSection.SmtpProviderConfig.SmtpTimeOut;
         }
 
         private MailMessage CreateMail(MailRequest mailRequest)

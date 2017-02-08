@@ -30,20 +30,20 @@ namespace CommonMailLibrary.SendGridMailProvider
 
         }
 
-        public async Task SendMailAsync(MailRequest request)
-        {
-            var mail = CreateMail(request);
-            await _sendGridApi.client.mail.send.post(requestBody: mail.Get());
-        }
+        //public async Task SendMailAsync(MailRequest request)
+        //{
+        //    var mail = CreateMail(request);
+        //    await _sendGridApi.client.mail.send.post(requestBody: mail.Get());
+        //}
 
-        protected override Task SendMailAsyncInternal(MailRequest mailRequest)
+        protected override async Task SendMailAsyncInternal(MailRequest mailRequest)
         {
-            throw new NotImplementedException();
+            await SendMailAsync(mailRequest);
         }
 
         protected override void SendMailInternal(MailRequest mailRequest)
         {
-            throw new NotImplementedException();
+            SendMail(mailRequest);
         }
 
         private Mail CreateMail(MailRequest request)
@@ -76,10 +76,10 @@ namespace CommonMailLibrary.SendGridMailProvider
             return mail;
         }
 
-        public void SendMail(MailRequest request)
-        {
-            var mail = CreateMail(request);
-            _sendGridApi.client.mail.send.post(requestBody: mail.Get());
-        }
+        //public void SendMail(MailRequest request)
+        //{
+        //    var mail = CreateMail(request);
+        //    _sendGridApi.client.mail.send.post(requestBody: mail.Get());
+        //}
     }
 }

@@ -8,7 +8,7 @@ using CommonMailLibrary.SmtpMailProvider.ConfigSections;
 
 namespace CommonMailLibrary.SmtpMailProvider
 {
-    public class SmtpMailProvider : IMailProvider
+    public class SmtpMailProvider : MailProviderBase
     {
         private readonly string _smtpHost;
         private readonly int _smtpPort;
@@ -37,7 +37,7 @@ namespace CommonMailLibrary.SmtpMailProvider
             _smtpTimeOut = smtpProviderConfigSection.SmtpProviderConfig.SmtpTimeOut;
         }
 
-        private MailMessage CreateMail(MailRequest mailRequest)
+        private MailMessage Map(MailRequest mailRequest)
         {
             if (mailRequest == null)
             {
@@ -70,7 +70,7 @@ namespace CommonMailLibrary.SmtpMailProvider
             }
 
             mailMessage.From = new System.Net.Mail.MailAddress(mailRequest.From);
-            
+
 
 
             _smtpClient = new SmtpClient(_smtpHost, _smtpPort)
@@ -82,16 +82,15 @@ namespace CommonMailLibrary.SmtpMailProvider
             return mailMessage;
         }
 
-        public void SendMail(MailRequest mailRequest)
+      
+        protected override async Task SendMailAsyncInternal(MailRequest mailRequest)
         {
-            var mailMessage = CreateMail(mailRequest);
-            _smtpClient.Send(mailMessage);
+            await _smtpClient.SendMailAsync(Map(mailRequest));
         }
 
-        public async Task SendMailAsync(MailRequest mailRequest)
+        protected override void SendMailInternal(MailRequest mailRequest)
         {
-            var mailMessage = CreateMail(mailRequest);
-            await _smtpClient.SendMailAsync(mailMessage);
+            _smtpClient.Send(Map(mailRequest));
         }
     }
 }

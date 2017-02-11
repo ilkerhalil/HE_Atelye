@@ -27,26 +27,21 @@ namespace CommonMailLibrary.SendGridMailProvider
         public SendGridMailProvider(string apiKey)
         {
             _apiKey = apiKey;
-
         }
-
-        //public async Task SendMailAsync(MailRequest request)
-        //{
-        //    var mail = CreateMail(request);
-        //    await _sendGridApi.client.mail.send.post(requestBody: mail.Get());
-        //}
 
         protected override async Task SendMailAsyncInternal(MailRequest mailRequest)
         {
-            await SendMailAsync(mailRequest);
+            var mail = Map(mailRequest);
+            await _sendGridApi.client.mail.send.post(requestBody: mail.Get());
         }
 
         protected override void SendMailInternal(MailRequest mailRequest)
         {
-            SendMail(mailRequest);
+            var mail = Map(mailRequest);
+            _sendGridApi.client.mail.send.post(requestBody: mail.Get());
         }
 
-        private Mail CreateMail(MailRequest request)
+        private Mail Map(MailRequest request)
         {
             var mail = new Mail();
             var personalization = new Personalization();
@@ -75,11 +70,5 @@ namespace CommonMailLibrary.SendGridMailProvider
             mail.Subject = request.Subject;
             return mail;
         }
-
-        //public void SendMail(MailRequest request)
-        //{
-        //    var mail = CreateMail(request);
-        //    _sendGridApi.client.mail.send.post(requestBody: mail.Get());
-        //}
     }
 }

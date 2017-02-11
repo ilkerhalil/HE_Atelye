@@ -82,7 +82,7 @@ namespace CommonMailLibrary.SmtpMailProvider
             return mailMessage;
         }
 
-      
+
         protected override async Task SendMailAsyncInternal(MailRequest mailRequest)
         {
             await _smtpClient.SendMailAsync(Map(mailRequest));
@@ -91,6 +91,14 @@ namespace CommonMailLibrary.SmtpMailProvider
         protected override void SendMailInternal(MailRequest mailRequest)
         {
             _smtpClient.Send(Map(mailRequest));
+        }
+
+        protected override void DisposeInternal()
+        {
+            if (_smtpClient != null)
+            {
+                _smtpClient = null;
+            }
         }
     }
 }

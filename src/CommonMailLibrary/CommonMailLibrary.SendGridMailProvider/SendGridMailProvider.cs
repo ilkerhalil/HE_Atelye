@@ -41,6 +41,14 @@ namespace CommonMailLibrary.SendGridMailProvider
             _sendGridApi.client.mail.send.post(requestBody: mail.Get());
         }
 
+        protected override void DisposeInternal()
+        {
+            if (_sendGridApi != null)
+            {
+                _sendGridApi = null;
+            }
+        }
+
         private Mail Map(MailRequest request)
         {
             var mail = new Mail();

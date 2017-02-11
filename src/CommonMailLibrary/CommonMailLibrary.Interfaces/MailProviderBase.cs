@@ -36,11 +36,18 @@ namespace CommonMailLibrary.Interfaces
 
             mailRequestValidator.Validate();
         }
+        public void Dispose()
+        {
+            DisposeInternal();
+            GC.SuppressFinalize(this);
+        }
 
         protected abstract Task SendMailAsyncInternal(MailRequest mailRequest);
 
         protected abstract void SendMailInternal(MailRequest mailRequest);
+        protected abstract void DisposeInternal();
 
+        
 
     }
 }

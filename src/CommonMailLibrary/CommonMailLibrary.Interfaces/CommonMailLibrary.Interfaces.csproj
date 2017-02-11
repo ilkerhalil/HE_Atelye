@@ -38,7 +38,11 @@
     <Compile Include="IMailProvider.cs" />
     <Compile Include="MailAddress.cs" />
     <Compile Include="MailAddressCollection.cs" />
+    <Compile Include="MailException.cs" />
+    <Compile Include="MailProviderBase.cs" />
     <Compile Include="MailRequest.cs" />
+    <Compile Include="MailRequestException.cs" />
+    <Compile Include="MailRequestValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

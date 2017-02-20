@@ -7,7 +7,7 @@ namespace CommonMailLibrary.Interfaces
     public abstract class MailProviderBase : IMailProvider
     {
 
-        public virtual void SendEmail(IEnumerable<MailRequest> mailRequests)
+        public virtual void SendMail(IEnumerable<MailRequest> mailRequests)
         {
             foreach (var mailRequest in mailRequests)
             {

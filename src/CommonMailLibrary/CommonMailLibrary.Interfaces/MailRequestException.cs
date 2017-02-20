@@ -1,7 +1,7 @@
 ﻿namespace CommonMailLibrary.Interfaces
 {
-    public class MailRequestException : MailException {
-        public MailRequestException(string message)
+    public class MailRequestValidationException : MailException {
+        public MailRequestValidationException(string message)
             :base(message)
         {
             

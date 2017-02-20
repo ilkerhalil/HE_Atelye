@@ -1,6 +1,7 @@
 ﻿using System;
 using CommonMailLibrary.Interfaces;
-using Should;
+
+using Shouldly;
 using Xunit;
 
 namespace HE_Atelye_CommonMailLibrary.Tests {
@@ -20,12 +21,12 @@ namespace HE_Atelye_CommonMailLibrary.Tests {
         [Fact]
         public void MailRequest_Properties_Test() {
             //assert
-            mailRequest.Subject.ShouldBeType<string>();
-            mailRequest.Body.ShouldBeType<string>();
-            mailRequest.From.ShouldBeType<string>();
-            mailRequest.Bcc.ShouldBeType<MailAddressCollection>();
-            mailRequest.Cc.ShouldBeType<MailAddressCollection>();
-            mailRequest.To.ShouldBeType<MailAddressCollection>();
+            mailRequest.Subject.ShouldBeOfType<string>();
+            mailRequest.Body.ShouldBeOfType<string>();
+            mailRequest.From.ShouldBeOfType<string>();
+            mailRequest.Bcc.ShouldBeOfType<MailAddressCollection>();
+            mailRequest.Cc.ShouldBeOfType<MailAddressCollection>();
+            mailRequest.To.ShouldBeOfType<MailAddressCollection>();
         }
     }
 }
